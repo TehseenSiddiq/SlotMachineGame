@@ -60,6 +60,18 @@ MonoBehaviour:
   - {fileID: 2800000, guid: d01de1a21024f1248b09110cf8d45eba, type: 3}
   - {fileID: 2800000, guid: 39b833afced944b469aa82152639f524, type: 3}
   - {fileID: 2800000, guid: 897833a7017477145b558f153381f625, type: 3}
+  names:
+  - Cash
+  - Celebs
+  - Conservatorship
+  - Paparazzi
+  - Phone
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   indexInColumn: 0
   animationIndex: 0
   itemType: 2

@@ -25,10 +25,10 @@ public class SlotManager : MonoBehaviour
     public GameObject[] themePayTablePrefabArray;
 
     public float probality;
-  public RectTransform gamblingPanel;
-  public GameObject spinButton;
-  public GameObject gamblingWheel;
-  public GameObject gamblingCanvas;
+    public RectTransform gamblingPanel;
+    public GameObject spinButton;
+    public GameObject gamblingWheel;
+    public GameObject gamblingCanvas;
     public GameObject wheelCanvas;
     public GameObject wheelPannel;
     public GameObject tersureCanvas;
@@ -62,53 +62,11 @@ public class SlotManager : MonoBehaviour
 
     internal int totalNoOfLines = 25;
 
+    public SlotItem[] resutItems = new SlotItem[3];
     void Awake()
     {       
         instance = this;
       
-     /*   if (Game.currentTheme == Themes.Casino)
-        {
-            Application.LoadLevelAdditive("Casino Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[0];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[0];
-        }
-       else if (Game.currentTheme == Themes.Farm)
-        {
-         
-            Application.LoadLevelAdditive("Farm Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[1];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[1];
-        }
-        else if(Game.currentTheme == Themes.Egypt){
-         
-            Application.LoadLevelAdditive("Egypt Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[2];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[2];
-        }
-        else if (Game.currentTheme == Themes.Retro)
-        {
-            Application.LoadLevelAdditive("Retro Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[3];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[3];
-        }
-        else if (Game.currentTheme == Themes.Vegas)
-        {
-            Application.LoadLevelAdditive("Vegas Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[4];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[4];
-        }
-        else if (Game.currentTheme == Themes.Witch)
-        {
-            Application.LoadLevelAdditive("Witch Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[5];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[5];
-        }
-        else if (Game.currentTheme == Themes.Zombie)
-        {
-            Application.LoadLevelAdditive("Zombie Theme");
-            slotItemPrefab = themeSlotItemPrefabArray[6];
-            GUIManager.instance.payTablePopupPrefab = themePayTablePrefabArray[6];
-        }*/
     }
 
     public void SpinButtonClicked()
@@ -137,47 +95,79 @@ public class SlotManager : MonoBehaviour
             StartCoroutine(ColumnManager.instance.StartSpinningColumn());
          
     }
+    public void Result()
+    {
+        ColumnScript[] columnScripts = ColumnManager.instance.columnScripts;
+        for (int i = 0; i < columnScripts.Length; i++)
+        {
+          //  Debug.Log("Working Here");
+            foreach (SlotItem slotItem in columnScripts[i].slotItems)
+            {
+              //  Debug.Log("Sucessfully Found :" + (Mathf.RoundToInt(slotItem.transform.localPosition.y )== -2));
+                if (Mathf.RoundToInt(slotItem.transform.localPosition.y) == -2)
+                {
+                   // Debug.Log("Position Matched");
+                    resutItems[i] = slotItem;
+                    this.Wait(1.22f,()=> Check());
+                }
+            }
+        }
+        
+    }
+    void Check()
+    {
+       
+        for (int index = 0; index < 11; index++)
+        {
+           // Debug.Log("Phase 1 "+());
+         //   Debug.Log("Phase 2 "+ ());
+         //   Debug.Log("Phase 3 "+ ());
+          //  Debug.Log("Phase 4 "+(resutItems[2].animationIndex == index && resutItems[0].indexInColumn == index && resutItems[1].indexInColumn != index));
+            if (resutItems[0].animationIndex == index && resutItems[1].animationIndex == index && resutItems[2].animationIndex == index)
+            {
+                if(index >1)
+                    UiManager.instance.InstaniateEffect(index);
+                UiManager.instance.Particle();
+                break;
+            }
+            else if ((resutItems[0].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[1].animationIndex != index))
+            {
+                if (index > 1)
+                    UiManager.instance.InstaniateEffect(index);
+                UiManager.instance.Particle();
+                break;
+            }
+            else if ((resutItems[1].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[0].animationIndex != index))
+            {
+                if (index > 1)
+                    UiManager.instance.InstaniateEffect(index);
+                UiManager.instance.Particle();
+                break;
+            }
+            else if ((resutItems[0].animationIndex == index) && (resutItems[1].animationIndex == index) && (resutItems[2].animationIndex != index))
+            {
+                if (index > 1)
+                    UiManager.instance.InstaniateEffect(index);
+                UiManager.instance.Particle();
+                break;
+            }
+            else
+            {
 
+            }
+        }
+
+    }
     /// Call Back When Spining Complete..
     internal void OnSpinComplete()
     {
-
-        if(Random.Range(0,1001) <= probality*1000)
+        isSpinning = false;
+        if (Random.Range(0,1001) <= probality*1000)
         {
-           /* Rooms room = Rooms.Casino;
-            if (Game.currentTheme == Themes.Casino)
-            {
-                room = Rooms.Casino;
-            }
-            else if (Game.currentTheme == Themes.Farm)
-            {
-                room = Rooms.Farm;
-            }
-            else if (Game.currentTheme == Themes.Egypt)
-            {
-                room = Rooms.Egypt;
-            }
-            else if (Game.currentTheme == Themes.Retro)
-            {
-                
-            }
-            else if (Game.currentTheme == Themes.Vegas)
-            {
-                room = Rooms.Vegas;
-            }
-            else if (Game.currentTheme == Themes.Witch)
-            {
-                room = Rooms.Witch;
-            }
-            else if (Game.currentTheme == Themes.Zombie)
-            {
-                room = Rooms.Zoombie;
-            }
-            JackpotManagerScript.instance.JackPotWin(room);
-        }*/
+           
 
         //    Invoke("_StopSpinSound",.8f);
-            isSpinning = false;
+           
           //  Invoke("_SpinCompleted", 1f);
       //  AdsManagerNew.instance.OneSpinned();
             // Add call to bring gambling forward here

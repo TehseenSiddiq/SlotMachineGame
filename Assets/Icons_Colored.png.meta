@@ -74,6 +74,9 @@ TextureImporter:
   - first:
       213: -1359342966051974616
     second: Icons_Colored_23
+  - first:
+      213: -2644271501852763670
+    second: Icons_Colored_24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -632,6 +635,69 @@ TextureImporter:
       bones: []
       spriteID: 822db8446c4a22de0800000000000000
       internalID: -1359342966051974616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Colored_5
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 80
+        width: 166
+        height: 179
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1eb80710641cbc0800000000000000
+      internalID: -3764650841507896900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Colored_6
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 113
+        width: 146
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8da309e148e818d0800000000000000
+      internalID: -2875292992296211060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icons_Colored_24
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 95
+        width: 165
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae9906a3419ad4bd0800000000000000
+      internalID: -2644271501852763670
       vertices: []
       indices: 
       edges: []

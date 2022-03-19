@@ -28,7 +28,8 @@ public class SlotItem : MonoBehaviour
     public AudioClip[] audios;
 
     public Texture2D[] slotItemTextures;
-
+    [SerializeField]string[] names;
+    public static string itemName;
     private ColumnScript myColumnScript;
     public int indexInColumn;
     public int animationIndex = 0;
@@ -100,6 +101,7 @@ public class SlotItem : MonoBehaviour
             itemType = SlotItemType.Bonus;
 
         GetComponent<Renderer>().material.mainTexture = slotItemTextures[animationIndex];
+        itemName = names[animationIndex];
 
     }
 }// End Script..

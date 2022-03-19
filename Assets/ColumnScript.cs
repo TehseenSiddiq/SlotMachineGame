@@ -104,6 +104,7 @@ public class ColumnScript : MonoBehaviour
     /// Spining Stop Iween Start to Reset Position Of slot Item....
     void StopSpin()
     {
+        
         shouldStopSpinning = true;
     }
 
@@ -123,10 +124,15 @@ public class ColumnScript : MonoBehaviour
 
         if (shouldStopSpinning)
         {
+        
             isSpinning = false;
            // SoundFxManager.instance.columnSpinCompleteSound.Play();
-            if (columnIndex == 4)            
-                SlotManager.instance.OnSpinComplete();
+            if (columnIndex == 2)
+            {
+               this.Wait(1.2f,()=> SlotManager.instance.Result());
+                SlotManager.instance.isSpinning = false;
+            }        
+                
         }
     }
 
