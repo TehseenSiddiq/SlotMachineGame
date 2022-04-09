@@ -33,6 +33,7 @@ public class UiManager : MonoBehaviour
     void Update()
     {
         DragCamera();
+        //Debug.Log(Time.);
     }
 
     public void SidePanel(int index)
@@ -105,9 +106,9 @@ public class UiManager : MonoBehaviour
         }
     }
 
-    public void InstaniateEffect(int i)
+    public void InstaniateEffect(int i,Vector2 pos)
     {  
-        GameObject a = Instantiate(slotEffect, Vector3.zero, Quaternion.identity);
+        GameObject a = Instantiate(slotEffect, pos, Quaternion.identity);
         a.GetComponent<SpriteRenderer>().sprite = effectImages[i];
         
     }

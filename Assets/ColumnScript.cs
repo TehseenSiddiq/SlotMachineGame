@@ -96,7 +96,7 @@ public class ColumnScript : MonoBehaviour
             }
         }
         /// Call Stop Spining..
-        Invoke("StopSpin", SlotManager.instance.timeOfSpin + columnIndex * .3f);
+        this.Wait(SlotManager.instance.timeOfSpin + columnIndex * .3f,()=> StopSpin());
     }
 
 

@@ -126,28 +126,28 @@ public class SlotManager : MonoBehaviour
             if (resutItems[0].animationIndex == index && resutItems[1].animationIndex == index && resutItems[2].animationIndex == index)
             {
                 if(index >1)
-                    UiManager.instance.InstaniateEffect(index);
+                    UiManager.instance.InstaniateEffect(index,new Vector2(0,0));
                 UiManager.instance.Particle();
                 break;
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[1].animationIndex != index))
             {
                 if (index > 1)
-                    UiManager.instance.InstaniateEffect(index);
+                    UiManager.instance.InstaniateEffect(index,new Vector2(0, 0));
                 UiManager.instance.Particle();
                 break;
             }
             else if ((resutItems[1].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[0].animationIndex != index))
             {
                 if (index > 1)
-                    UiManager.instance.InstaniateEffect(index);
+                    UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
                 UiManager.instance.Particle();
                 break;
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[1].animationIndex == index) && (resutItems[2].animationIndex != index))
             {
                 if (index > 1)
-                    UiManager.instance.InstaniateEffect(index);
+                    UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
                 UiManager.instance.Particle();
                 break;
             }
