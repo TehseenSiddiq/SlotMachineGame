@@ -18,6 +18,8 @@ public class UiManager : MonoBehaviour
     public Sprite[] effectImages;
     public ParticleSystem ps;
 
+    public TextMeshProUGUI machineRewardText;
+
     [SerializeField] TextMeshProUGUI tagText;
 
     private void Awake()
@@ -120,5 +122,12 @@ public class UiManager : MonoBehaviour
     public void MachineTagText()
     {
         tagText.text = SlotItem.itemName;
+    }
+
+    public void MachineTextPopUp(string content,Vector3 scaleTo,float duration)
+    {
+        machineRewardText.text = content;
+        machineRewardText.transform.DOScale(scaleTo, duration);
+        this.Wait(4, () => machineRewardText.transform.DOScale(Vector3.zero, duration));
     }
 }

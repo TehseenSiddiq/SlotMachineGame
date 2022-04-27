@@ -46,7 +46,7 @@ public class WheelManager : MonoBehaviour
             {
                 foreach (var angle in angles)
                 {
-                    Debug.Log("Angle: " + (angle - transform.eulerAngles.z));
+                    
                     if(angle - transform.eulerAngles.z <= 45 && angle - transform.eulerAngles.z > 0)
                     {
                        // iTween.Defaults.easeType = iTween.EaseType.easeInElastic;

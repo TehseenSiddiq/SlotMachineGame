@@ -126,7 +126,9 @@ public class ColumnScript : MonoBehaviour
         {
         
             isSpinning = false;
-           // SoundFxManager.instance.columnSpinCompleteSound.Play();
+            // SoundFxManager.instance.columnSpinCompleteSound.Play();
+            FindObjectOfType<AudioManager>().Stop("SpinSound");
+            FindObjectOfType<AudioManager>().Play("ColumnSpinStop");
             if (columnIndex == 2)
             {
                this.Wait(1.2f,()=> SlotManager.instance.Result());

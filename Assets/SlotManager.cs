@@ -61,6 +61,7 @@ public class SlotManager : MonoBehaviour
     public float minForTeasure;
 
     internal int totalNoOfLines = 25;
+    public string[] remarks;
 
     public SlotItem[] resutItems = new SlotItem[3];
     void Awake()
@@ -74,14 +75,15 @@ public class SlotManager : MonoBehaviour
         if (isSpinning)
             return;
 
-			//add to our total spendings
-			PlayerPrefs.SetInt("TotalSpendings",PlayerPrefs.GetInt("TotalSpendings") + totalBetAmount);
-			
-			//add our rank points
-		//	Rank rp = GameObject.FindObjectOfType(typeof(Rank)) as Rank;
-			//rp.AddRankPoints(50);
-			
-          //  SoundFxManager.instance.spinSound.Play();
+        //add to our total spendings
+        //PlayerPrefs.SetInt("TotalSpendings",PlayerPrefs.GetInt("TotalSpendings") + totalBetAmount);
+
+        //add our rank points
+        //	Rank rp = GameObject.FindObjectOfType(typeof(Rank)) as Rank;
+        //rp.AddRankPoints(50);
+
+        //SoundFxManager.instance.spinSound.Play();
+        FindObjectOfType<AudioManager>().Play("SpinSound");
             
          //   ResetAll();
    
@@ -119,35 +121,43 @@ public class SlotManager : MonoBehaviour
        
         for (int index = 0; index < 11; index++)
         {
-           // Debug.Log("Phase 1 "+());
-         //   Debug.Log("Phase 2 "+ ());
-         //   Debug.Log("Phase 3 "+ ());
-          //  Debug.Log("Phase 4 "+(resutItems[2].animationIndex == index && resutItems[0].indexInColumn == index && resutItems[1].indexInColumn != index));
+              // Debug.Log("Phase 1 "+());
+             //  Debug.Log("Phase 2 "+ ());
+             //  Debug.Log("Phase 3 "+ ());
+             //  Debug.Log("Phase 4 "+(resutItems[2].animationIndex == index && resutItems[0].indexInColumn == index && resutItems[1].indexInColumn != index));
             if (resutItems[0].animationIndex == index && resutItems[1].animationIndex == index && resutItems[2].animationIndex == index)
             {
-                if(index >1)
+                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
+                if (index >1)
                     UiManager.instance.InstaniateEffect(index,new Vector2(0,0));
+                
                 UiManager.instance.Particle();
                 break;
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[1].animationIndex != index))
             {
+                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index,new Vector2(0, 0));
+               
                 UiManager.instance.Particle();
                 break;
             }
             else if ((resutItems[1].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[0].animationIndex != index))
             {
+                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+                
                 UiManager.instance.Particle();
                 break;
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[1].animationIndex == index) && (resutItems[2].animationIndex != index))
             {
+                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+                
                 UiManager.instance.Particle();
                 break;
             }
