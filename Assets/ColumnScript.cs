@@ -132,7 +132,8 @@ public class ColumnScript : MonoBehaviour
             if (columnIndex == 2)
             {
                this.Wait(1.2f,()=> SlotManager.instance.Result());
-                SlotManager.instance.isSpinning = false;
+               this.Wait(2f,()=> SlotManager.instance.isSpinning = false);
+                
             }        
                 
         }

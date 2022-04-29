@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("Sound:" + name + "not Found!");
             return;
         }
-        Debug.Log("Now Playing " + name);
+       // Debug.Log("Now Playing " + name);
     }
     public void Pause(string name)
     {

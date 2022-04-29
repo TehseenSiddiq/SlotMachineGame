@@ -127,6 +127,10 @@ public class SlotManager : MonoBehaviour
              //  Debug.Log("Phase 4 "+(resutItems[2].animationIndex == index && resutItems[0].indexInColumn == index && resutItems[1].indexInColumn != index));
             if (resutItems[0].animationIndex == index && resutItems[1].animationIndex == index && resutItems[2].animationIndex == index)
             {
+                if(index != 5)
+                    AudioManager.instance.Play("BigWinSound");
+                else
+                    AudioManager.instance.Play("Losse");
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index >1)
                     UiManager.instance.InstaniateEffect(index,new Vector2(0,0));
@@ -136,6 +140,10 @@ public class SlotManager : MonoBehaviour
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[1].animationIndex != index))
             {
+                if (index != 5)
+                    AudioManager.instance.Play("BigWinSound");
+                else
+                    AudioManager.instance.Play("Losse");
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index,new Vector2(0, 0));
@@ -145,6 +153,10 @@ public class SlotManager : MonoBehaviour
             }
             else if ((resutItems[1].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[0].animationIndex != index))
             {
+                if (index != 5)
+                    AudioManager.instance.Play("BigWinSound");
+                else
+                    AudioManager.instance.Play("Losse");
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
@@ -154,6 +166,10 @@ public class SlotManager : MonoBehaviour
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[1].animationIndex == index) && (resutItems[2].animationIndex != index))
             {
+                if (index != 5)
+                    AudioManager.instance.Play("BigWinSound");
+                else
+                    AudioManager.instance.Play("Losse");
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));

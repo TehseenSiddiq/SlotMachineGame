@@ -19,17 +19,26 @@ public class UiManager : MonoBehaviour
     public ParticleSystem ps;
 
     public TextMeshProUGUI machineRewardText;
-
     [SerializeField] TextMeshProUGUI tagText;
+
+    public Transform PopUpPanel;
+
 
     private void Awake()
     {
         instance = this;
+        PopUpPanel.localScale = Vector3.zero;
+       
     }
 
     void Start()
     {
-        dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen
+        dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen 
+        if (Random.Range(0, 2) == 0)
+        {
+            AudioManager.instance.Play("BonusPopup");
+            PopUpPanel.DOScale(1, 0.8f);
+        }
     }
 
     void Update()
@@ -129,5 +138,11 @@ public class UiManager : MonoBehaviour
         machineRewardText.text = content;
         machineRewardText.transform.DOScale(scaleTo, duration);
         this.Wait(4, () => machineRewardText.transform.DOScale(Vector3.zero, duration));
+    }
+    public void CollectPopup()
+    {
+        CoinAnimater.instance.AddCoins(new Vector3(0, 0, 0), 100);
+        AudioManager.instance.Play("DailyReward");
+        PopUpPanel.DOScale(0, 0.3f);
     }
 }

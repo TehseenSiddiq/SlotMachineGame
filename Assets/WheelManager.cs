@@ -80,6 +80,7 @@ public class WheelManager : MonoBehaviour
         collectBtn.SetActive(true);
         if (transform.eulerAngles.z == 180 || transform.eulerAngles.z == 90)
         {
+            AudioManager.instance.Play("Losse");
             if (!effect)
             {
                 UiManager.instance.InstaniateEffect(5,new Vector2(0,11));
@@ -90,7 +91,8 @@ public class WheelManager : MonoBehaviour
         }
         else
             ps.Play();
-      
+            AudioManager.instance.Play("JackPotSound");
+            
             spun = true;
             spinning = false;
             spinRate = Random.Range(250, 400);
