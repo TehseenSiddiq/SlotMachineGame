@@ -93,6 +93,8 @@ public class SlotManager : MonoBehaviour
      //   Game.noOfCoinsLeft -= totalBetAmount;
      //   Game.SaveGameSettings();
         Debug.Log("Spin Button Clicked");
+        Game.instance.SetSpins(Game.instance.GetSpins() - 1);
+        Debug.Log(Game.instance.GetSpins());
      //   ResetAllAmount();
             StartCoroutine(ColumnManager.instance.StartSpinningColumn());
          

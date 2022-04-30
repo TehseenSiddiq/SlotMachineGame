@@ -8,7 +8,7 @@ public class UiManager : MonoBehaviour
 
     private Vector3 fp;   //First touch position
     private Vector3 lp;   //Last touch position
-    private float dragDistance;  //minimum distance for a swipe to be registered
+    [SerializeField]private float dragDistance;  //minimum distance for a swipe to be registered
     [SerializeField] GameObject camera;
     [SerializeField] float cameraSpeed;
 
@@ -20,6 +20,8 @@ public class UiManager : MonoBehaviour
 
     public TextMeshProUGUI machineRewardText;
     [SerializeField] TextMeshProUGUI tagText;
+    [SerializeField] TextMeshProUGUI cashText;
+    [SerializeField] TextMeshProUGUI spinsText, extraSpinsText;
 
     public Transform PopUpPanel;
 
@@ -33,7 +35,7 @@ public class UiManager : MonoBehaviour
 
     void Start()
     {
-        dragDistance = Screen.height * 15 / 100; //dragDistance is 15% height of the screen 
+        dragDistance = Screen.height * 30 / 100; //dragDistance is 15% height of the screen 
         if (Random.Range(0, 2) == 0)
         {
             AudioManager.instance.Play("BonusPopup");
@@ -46,7 +48,19 @@ public class UiManager : MonoBehaviour
         DragCamera();
         //Debug.Log(Time.);
     }
-
+    private void LateUpdate()
+    {
+        Game game = new Game();
+        cashText.text = game.GetCash().ToString();
+        if(game.GetSpins() < 50)
+             spinsText.text = game.GetCash().ToString()+"/50";
+        else
+        {
+           // Debug.Log(game.GetSpins())
+            spinsText.text = "50/50";
+            extraSpinsText.text = "+"+(game.GetSpins()-50).ToString()+ " Spins";
+        }
+    }
     public void SidePanel(int index)
     {
         sidePanel.DOAnchorPos(new Vector3(index, 0, 0), 0.4f);
@@ -144,5 +158,9 @@ public class UiManager : MonoBehaviour
         CoinAnimater.instance.AddCoins(new Vector3(0, 0, 0), 100);
         AudioManager.instance.Play("DailyReward");
         PopUpPanel.DOScale(0, 0.3f);
+    }
+    public void OpenURL(string url)
+    {
+        Application.OpenURL(url);
     }
 }
