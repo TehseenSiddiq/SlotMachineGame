@@ -27,7 +27,8 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-     //   Play("Theme");
+        if(FindObjectOfType<SettingManager>().music)
+             Play("Theme");
     }
     public void Play(string name)
     {

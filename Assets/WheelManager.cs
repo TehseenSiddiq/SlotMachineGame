@@ -16,6 +16,7 @@ public class WheelManager : MonoBehaviour
     private bool spun;
     public GameObject spinBtn, collectBtn;
     public float[] angles;
+    public long[] prices;
    // public SlotItemType itemType = SlotItemType.Normal;
     [SerializeField] EaseType easeType;
 
@@ -55,7 +56,7 @@ public class WheelManager : MonoBehaviour
                         break;
                     }
                 }
-                this.Wait(2, () => Result());
+                this.Wait(1.2f, () => Result());
                 
                 // GetComponent<BoxCollider>().enabled = true;
                 //GetComponent<BoxCollider>().isTrigger = true;
@@ -74,31 +75,57 @@ public class WheelManager : MonoBehaviour
         }
     }
     bool effect = false;
+    private bool isResulted;
+
     void Result()
     {
-       
         collectBtn.SetActive(true);
         if (transform.eulerAngles.z == 180 || transform.eulerAngles.z == 90)
         {
             AudioManager.instance.Play("Losse");
+            FindObjectOfType<RehabManager>().StartRehab();
             if (!effect)
             {
                 UiManager.instance.InstaniateEffect(5,new Vector2(0,11));
                 effect = true;
             }
-            
-            
         }
         else
+        {
             ps.Play();
             AudioManager.instance.Play("JackPotSound");
-            
-            spun = true;
-            spinning = false;
-            spinRate = Random.Range(250, 400);
-            randomVal = Random.Range(100, 150);
-            spinTime = 0;
-       
+            if (transform.eulerAngles.z == 45 || transform.eulerAngles.z == 315)
+            {
+                if (!isResulted)
+                {
+                    Game.instance.SetCash(Game.instance.GetCash() + prices[0]);
+                    isResulted = true;
+                }
+            }
+            else if(transform.eulerAngles.z == 135)
+            {
+                if (!isResulted)
+                {
+                    Game.instance.SetCash(Game.instance.GetCash() + prices[2]);
+                    isResulted = true;
+                }
+            }
+            else if (transform.eulerAngles.z == 225 || transform.eulerAngles.z == 270 || transform.eulerAngles.z == 360)
+            {
+                if (!isResulted)
+                {
+                    Game.instance.SetCash(Game.instance.GetCash() + prices[3]);
+                    isResulted = true;
+                }
+            }
+
+            Game.instance.SaveGame();
+        }
+        spun = true;
+        spinning = false;
+        spinRate = Random.Range(250, 400);
+        randomVal = Random.Range(100, 150);
+        spinTime = 0;
     }
     public void Spin()
     {

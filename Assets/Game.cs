@@ -6,8 +6,8 @@ public class Game : MonoBehaviour
 {
     public static Game instance;
 
-    private int cash = 10000;
-    private int spins = 50;
+    private long cash = 10000;
+    public int spins = 50;
     private int level = 0;
 
 
@@ -20,26 +20,18 @@ public class Game : MonoBehaviour
         LoadGame();
     }
 
-    public void SetCash(int cash)
+    public void SetCash(long cash)
     {
         this.cash = cash;
     }
-    public void SetSpins(int spins)
-    {
-        this.spins -= spins;
-    }
+ 
     public void SetLevel(int level)
     {
         this.level = level;
     }
-    public int GetCash()
+    public long GetCash()
     {
         return cash;
-    }
-    public int GetSpins()
-    {
-        return spins;
-
     }
     public int GetLevel()
     {

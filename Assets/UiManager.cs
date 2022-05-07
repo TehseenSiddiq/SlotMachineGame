@@ -1,6 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class UiManager : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class UiManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI tagText;
     [SerializeField] TextMeshProUGUI cashText;
     [SerializeField] TextMeshProUGUI spinsText, extraSpinsText;
+    public Image sliderImage;
+    public Sprite[] sliderSprite;
+    public Slider spinsSliders;
+
 
     public Transform PopUpPanel;
 
@@ -40,6 +45,11 @@ public class UiManager : MonoBehaviour
         {
             AudioManager.instance.Play("BonusPopup");
             PopUpPanel.DOScale(1, 0.8f);
+            PopUpPanel.GetComponent<Image>().DOFade(0.3f, 0.2f);
+            for (int i = 0; i < PopUpPanel.transform.childCount; i++)
+            {
+                PopUpPanel.GetChild(i).GetComponent<Image>().DOFade(1, 0.2f);
+            }
         }
     }
 
@@ -47,19 +57,41 @@ public class UiManager : MonoBehaviour
     {
         DragCamera();
         //Debug.Log(Time.);
+       // Swipe();
     }
+   
+    
     private void LateUpdate()
     {
-        Game game = new Game();
-        cashText.text = game.GetCash().ToString();
-        if(game.GetSpins() < 50)
-             spinsText.text = game.GetCash().ToString()+"/50";
+       // Game game = new Game();
+        cashText.text = Game.instance.GetCash().ToString();
+        if (RehabManager.InRehab())
+        {
+            spinsText.text = "Rehab";
+            sliderImage.sprite = sliderSprite[0];
+            spinsSliders.value = spinsSliders.maxValue;
+            DisplayTime(RehabManager.rehabTimer, extraSpinsText);
+        }
         else
         {
-           // Debug.Log(game.GetSpins())
-            spinsText.text = "50/50";
-            extraSpinsText.text = "+"+(game.GetSpins()-50).ToString()+ " Spins";
+            sliderImage.sprite = sliderSprite[1];
+           // Debug.Log(Game.instance.spins);
+            if (Game.instance.spins < 50)
+            {
+                spinsText.text = Game.instance.spins.ToString() + "/50";
+                spinsSliders.value = Game.instance.spins;
+                extraSpinsText.text = 0 + " Spins";
+            }
+
+            else
+            {
+                // Debug.Log(game.GetSpins())
+                spinsText.text = "50/50";
+                extraSpinsText.text = "+" + (Game.instance.spins - 50) + " Spins";
+                spinsSliders.value = 50;
+            }
         }
+      
     }
     public void SidePanel(int index)
     {
@@ -84,7 +116,7 @@ public class UiManager : MonoBehaviour
                 lp = touch.position;  //last touch position. Ommitted if you use list
 
                 //Check if drag distance is greater than 20% of the screen height
-                if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
+                if (Mathf.Abs(lp.y - fp.y) > dragDistance)
                 {
                     //It's a drag
                     //check if the drag is vertical or horizontal
@@ -98,39 +130,47 @@ public class UiManager : MonoBehaviour
                          {   //Left swipe
                              Debug.Log("Left Swipe");
                          }*/
-                }
-                else
-                    {   //the vertical movement is greater than the horizontal movement
-                        if (lp.y > fp.y)  //If the movement was up
-                        {   //Up swipe
-                            Debug.Log("Up Swipe");
-                            if (camera.transform.position.y == -12)
-                                return;
-                            else if (camera.transform.position.y == 0)
-                                camera.transform.DOMove(new Vector3(0, -12, camera.transform.position.z), cameraSpeed, false);
-                            else if (camera.transform.position.y == 12)
-                                camera.transform.DOMove(new Vector3(0, 0, camera.transform.position.z), cameraSpeed, false);
-                        }
-                        else
-                        {   //Down swipe
-                            Debug.Log("Down Swipe");
-                            if (camera.transform.position.y == 12)
-                                return;
-                            else if (camera.transform.position.y == 0)
-                                camera.transform.DOMove(new Vector3(0, 12, camera.transform.position.z), cameraSpeed, false);
-                            else if (camera.transform.position.y == -12)
-                                camera.transform.DOMove(new Vector3(0, 0, camera.transform.position.z), cameraSpeed, false);
-                        }
+                    if (lp.y > fp.y)  //If the movement was up
+                    {   //Up swipe
+                        Debug.Log("Up Swipe");
+                        SwipeUp();
+                    }
+                    else
+                    {   //Down swipe
+                        Debug.Log("Down Swipe");
+                        SwipeDown();
                     }
                 }
-                else
-                {   //It's a tap as the drag distance is less than 20% of the screen height
-                    Debug.Log("Tap");
-                }
+            }
             
         }
     }
 
+    public void SwipeButton(int index)
+    {
+       
+       camera.transform.DOMove(new Vector3(0, index, camera.transform.position.z), cameraSpeed, false);
+      
+    }
+
+    public void SwipeUp()
+    {
+        if (camera.transform.position.y == -10)
+            return;
+        else if (camera.transform.position.y == 0)
+            camera.transform.DOMove(new Vector3(0, -10, camera.transform.position.z), cameraSpeed, false);
+        else if (camera.transform.position.y == 10)
+            camera.transform.DOMove(new Vector3(0, 0, camera.transform.position.z), cameraSpeed, false);
+    }
+    public void SwipeDown()
+    {
+        if (camera.transform.position.y == 10)
+            return;
+        else if (camera.transform.position.y == 0)
+            camera.transform.DOMove(new Vector3(0, 10, camera.transform.position.z), cameraSpeed, false);
+        else if (camera.transform.position.y == -10)
+            camera.transform.DOMove(new Vector3(0, 0, camera.transform.position.z), cameraSpeed, false);
+    }
     public void InstaniateEffect(int i,Vector2 pos)
     {  
         GameObject a = Instantiate(slotEffect, pos, Quaternion.identity);
@@ -157,10 +197,21 @@ public class UiManager : MonoBehaviour
     {
         CoinAnimater.instance.AddCoins(new Vector3(0, 0, 0), 100);
         AudioManager.instance.Play("DailyReward");
-        PopUpPanel.DOScale(0, 0.3f);
+        PopUpPanel.DOScale(0, 0.5f);
+        PopUpPanel.GetComponent<Image>().DOFade(0, 0.2f);
+        for (int i = 0; i < PopUpPanel.transform.childCount; i++)
+        {
+            PopUpPanel.GetChild(i).GetComponent<Image>().DOFade(0, 0.2f);
+        }
     }
     public void OpenURL(string url)
     {
         Application.OpenURL(url);
+    }
+    void DisplayTime(float timeToDisplay,TextMeshProUGUI text)
+    {
+        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
