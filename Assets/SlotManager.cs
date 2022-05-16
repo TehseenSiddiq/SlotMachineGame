@@ -43,7 +43,7 @@ public class SlotManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(game.spins);
+       // Debug.Log(game.spins);
     }
     public void SpinButtonClicked()
     {
@@ -130,21 +130,26 @@ public class SlotManager : MonoBehaviour
                     if (!FindObjectOfType<Coupon>().isUnlocked)
                     {
                         FindObjectOfType<Coupon>().FadeIn();
-                        FindObjectOfType<Coupon>().isUnlocked = true;
+                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
                         ES3.Save("Coupon", true);
                     }
                 }
-                if (index != 5)
-                    AudioManager.instance.Play("BigWinSound");
-                else
+                if (index == 5 || index == 4)
                 {
                     AudioManager.instance.Play("Losse");
-                    FindObjectOfType<RehabManager>().StartRehab();
+                    if (index == 5)
+                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                    UiManager.instance.Particle(1);
+                }
+                else
+                {
+                    AudioManager.instance.Play("BigWinSound");
+                    UiManager.instance.Particle(0);
                 }
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index >1)
                     UiManager.instance.InstaniateEffect(index,new Vector2(0,0));               
-                UiManager.instance.Particle();
+                
                
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[1].animationIndex != index))
@@ -165,21 +170,30 @@ public class SlotManager : MonoBehaviour
                 }
                 if (index == 6)
                 {
-                    FindObjectOfType<Coupon>().isUnlocked = true;
-                    ES3.Save("Coupon", true);
+                    if (!FindObjectOfType<Coupon>().isUnlocked)
+                    {
+                        FindObjectOfType<Coupon>().FadeIn();
+                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                        ES3.Save("Coupon", true);
+                    }
                 }
-                if (index != 5)
-                    AudioManager.instance.Play("BigWinSound");
-                else
+                if (index == 5 || index == 4)
                 {
                     AudioManager.instance.Play("Losse");
-                    FindObjectOfType<RehabManager>().StartRehab();
+                    if (index == 5)
+                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                    UiManager.instance.Particle(1);
+                }
+                else
+                {
+                    AudioManager.instance.Play("BigWinSound");
+                    UiManager.instance.Particle(0);
                 }
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index,new Vector2(0, 0));
                
-                UiManager.instance.Particle();
+                //UiManager.instance.Particle();
             }
             else if ((resutItems[1].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[0].animationIndex != index))
             {
@@ -199,26 +213,39 @@ public class SlotManager : MonoBehaviour
                 }
                 if (index == 6)
                 {
-                    FindObjectOfType<Coupon>().isUnlocked = true;
-                    ES3.Save("Coupon", true);
+                    if (!FindObjectOfType<Coupon>().isUnlocked)
+                    {
+                        FindObjectOfType<Coupon>().FadeIn();
+                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                        ES3.Save("Coupon", true);
+                    }
                 }
-                if (index != 5)
-                    AudioManager.instance.Play("BigWinSound");
-                else
+                if (index == 5 || index == 4)
                 {
                     AudioManager.instance.Play("Losse");
-                    FindObjectOfType<RehabManager>().StartRehab();
+                    if (index == 5)
+                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                    UiManager.instance.Particle(1);
+                }
+                else
+                {
+                    AudioManager.instance.Play("BigWinSound");
+                    UiManager.instance.Particle(0);
                 }
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
                 
-                UiManager.instance.Particle();
+               // UiManager.instance.Particle();
                 
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[1].animationIndex == index) && (resutItems[2].animationIndex != index))
             {
                
+                if(index == 9 && Game.guards <3)
+                {
+                    Game.guards++;
+                }
                 if (!isResulted)
                 {
                     if (index != 7)
@@ -231,21 +258,30 @@ public class SlotManager : MonoBehaviour
                 }
                 if (index == 6)
                 {
-                    FindObjectOfType<Coupon>().isUnlocked = true;
-                    ES3.Save("Coupon", true);
+                    if (!FindObjectOfType<Coupon>().isUnlocked)
+                    {
+                        FindObjectOfType<Coupon>().FadeIn();
+                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                        ES3.Save("Coupon", true);
+                    }
                 }
-                if (index != 5)
-                    AudioManager.instance.Play("BigWinSound");
-                else
+                if (index == 5 || index == 4)
                 {
                     AudioManager.instance.Play("Losse");
-                    FindObjectOfType<RehabManager>().StartRehab();
+                    if (index == 5)
+                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                    UiManager.instance.Particle(1);
+                }
+                else
+                {
+                    AudioManager.instance.Play("BigWinSound");
+                    UiManager.instance.Particle(0);
                 }
                 UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
                 if (index > 1)
                     UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
                 
-                UiManager.instance.Particle();
+                //UiManager.instance.Particle();
                 
             }
             else
@@ -255,8 +291,9 @@ public class SlotManager : MonoBehaviour
                     Game.instance.SetCash(Game.instance.GetCash() + prizes[22]);
                     isResulted = true;
                 }
-                UiManager.instance.Particle();
+                //  UiManager.instance.Particle();
                 // break;
+                UiManager.instance.MachineTextPopUp("=/5000", new Vector3(0.01f, 0.01f, 0.01f), 1); 
             }
             Game.instance.SaveGame();
 

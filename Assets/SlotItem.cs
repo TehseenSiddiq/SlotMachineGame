@@ -88,7 +88,7 @@ public class SlotItem : MonoBehaviour
             }
         }
         else 
-            animationIndex = Random.Range(0, 9);
+            animationIndex = Random.Range(0, 11);
 
         
         if (animationIndex < 9)

@@ -9,7 +9,7 @@ public class FlashAnimation : MonoBehaviour
 
     void Start()
     {
-        transform.DOScale(new Vector3(1, 1, 1), 1f);
+        transform.DOScale(new Vector3(2, 2, 2), 1f);
         child.transform.DOScale(new Vector3(2, 2, 2), 1f);
 
         this.Wait(4, () =>

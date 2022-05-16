@@ -13,27 +13,17 @@ public class DateTimeManager : MonoBehaviour
         dt1 = DateTime.Now;
         dt2 = ES3.Load("dateQuit", dt2);
         TimeSpan timeSpan = dt1 - dt2;
+        Debug.Log(dt1+" : " + dt2+" = "+timeSpan);
         timeSinceAppClosed = timeSpan.TotalSeconds;
-        Debug.Log("TimePassed " + timeSpan.TotalSeconds);
-        DateNow = DateTime.Now.Date;
-        DateLast = ES3.Load("DateLast", DateLast);
-        TimeSpan datepass = DateNow - DateLast;
-        dateSinceLast = datepass.TotalDays;
-        Debug.Log("Time Passed : " + dateSinceLast);
+       // Debug.Log("TimePassed " + timeSpan.TotalSeconds);
+       // Debug.Log("Time Passed : " + dateSinceLast);
 
     }
 
 
     private void OnApplicationQuit()
     {
-        DateTime dateQuit = DateTime.Now;
-        ES3.Save("dateQuit", dateQuit);
-        if(dateSinceLast <= 0)
-        {
-            DateLast = DateTime.Now.Date;
-            ES3.Save("DateLast", DateLast);
-        }
-     
 
+        ES3.Save("dateQuit", DateTime.Now);
     }
 }

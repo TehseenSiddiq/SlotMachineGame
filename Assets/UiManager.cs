@@ -17,7 +17,7 @@ public class UiManager : MonoBehaviour
 
     [SerializeField] GameObject slotEffect;
     public Sprite[] effectImages;
-    public ParticleSystem ps;
+    public ParticleSystem ps,ps2;
 
     public TextMeshProUGUI machineRewardText;
     [SerializeField] TextMeshProUGUI tagText;
@@ -27,6 +27,7 @@ public class UiManager : MonoBehaviour
     public Sprite[] sliderSprite;
     public Slider spinsSliders;
 
+    public GameObject[] guardsImage;
 
     public Transform PopUpPanel;
 
@@ -51,13 +52,12 @@ public class UiManager : MonoBehaviour
                 PopUpPanel.GetChild(i).GetComponent<Image>().DOFade(1, 0.2f);
             }
         }
+        InvokeRepeating("GuardManager", 0.2f, 0.2f);
     }
 
     void Update()
     {
         DragCamera();
-        //Debug.Log(Time.);
-       // Swipe();
     }
    
     
@@ -92,6 +92,17 @@ public class UiManager : MonoBehaviour
             }
         }
       
+    }
+    void GuardManager()
+    {
+        foreach (GameObject guardImage in guardsImage)
+        {
+            guardImage.SetActive(false);
+        }
+        for (int i = 0; i < Game.guards; i++)
+        {
+            guardsImage[i].SetActive(true);
+        }
     }
     public void SidePanel(int index)
     {
@@ -145,14 +156,12 @@ public class UiManager : MonoBehaviour
             
         }
     }
-
     public void SwipeButton(int index)
     {
        
        camera.transform.DOMove(new Vector3(0, index, camera.transform.position.z), cameraSpeed, false);
       
     }
-
     public void SwipeUp()
     {
         if (camera.transform.position.y == -10)
@@ -177,16 +186,25 @@ public class UiManager : MonoBehaviour
         a.GetComponent<SpriteRenderer>().sprite = effectImages[i];
         
     }
-    public void Particle()
+    public void Particle(int index)
     {
-        ps.Play();
-        this.Wait(2, () => ps.Stop());
+        if(index == 0)
+        {
+           
+        }
+        else
+        {
+            ps2.Play();
+            this.Wait(2, () => ps2.Stop());
+        }
+       
     }
     public void MachineTagText()
     {
         tagText.text = SlotItem.itemName;
     }
 
+  
     public void MachineTextPopUp(string content,Vector3 scaleTo,float duration)
     {
         machineRewardText.text = content;
@@ -195,7 +213,11 @@ public class UiManager : MonoBehaviour
     }
     public void CollectPopup()
     {
-        CoinAnimater.instance.AddCoins(new Vector3(0, 0, 0), 100);
+        Game.instance.SetCash(Game.instance.GetCash() + 22550000);
+        Game.instance.spins += 100;
+        Game.instance.SaveGame();
+        CoinAnimater.instance.AddCoins(new Vector3(0, 0, 0), 60);
+        FindObjectOfType<SpinAnimator>().AddSpins(new Vector3(0, .5f, 0), 15);
         AudioManager.instance.Play("DailyReward");
         PopUpPanel.DOScale(0, 0.5f);
         PopUpPanel.GetComponent<Image>().DOFade(0, 0.2f);
@@ -203,15 +225,21 @@ public class UiManager : MonoBehaviour
         {
             PopUpPanel.GetChild(i).GetComponent<Image>().DOFade(0, 0.2f);
         }
+       
     }
     public void OpenURL(string url)
     {
         Application.OpenURL(url);
     }
-    void DisplayTime(float timeToDisplay,TextMeshProUGUI text)
+    public void DisplayTime(float timeToDisplay,TextMeshProUGUI text)
     {
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        text.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        //float hours = Mathf.FloorToInt(timeToDisplay / 60);
+        // float minutes = Mathf.FloorToInt(hours / 60);
+        //float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+        //text.text = string.Format("{0:00}:{1:00}:{2:00}",hours, minutes, seconds);
+        var timeSpan = System.TimeSpan.FromSeconds(timeToDisplay);
+        text.text = timeSpan.Hours.ToString("00") + ":" +
+                    timeSpan.Minutes.ToString("00") + ":" +
+                    timeSpan.Seconds.ToString("00");
     }
 }

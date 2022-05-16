@@ -8,7 +8,8 @@ public class Game : MonoBehaviour
 
     private long cash = 10000;
     public int spins = 50;
-    private int level = 0;
+    private int level = 1;
+    public static int guards = 0;
 
 
     private void Awake()
@@ -17,6 +18,7 @@ public class Game : MonoBehaviour
     }
     private void Start()
     {
+        
         LoadGame();
     }
 
@@ -42,11 +44,13 @@ public class Game : MonoBehaviour
         ES3.Save("Cash", cash);
         ES3.Save("Spins", spins);
         ES3.Save("Level", level);
+        ES3.Save("Guards", guards);
     }
     public void LoadGame()
     {
         cash = ES3.Load("Cash", cash);
         spins = ES3.Load("Spins", spins);
         level = ES3.Load("Level", level);
+        guards = ES3.Load("Guards", guards);
     }
 }
