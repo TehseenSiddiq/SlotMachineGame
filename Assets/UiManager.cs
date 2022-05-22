@@ -95,14 +95,23 @@ public class UiManager : MonoBehaviour
     }
     void GuardManager()
     {
+      
         foreach (GameObject guardImage in guardsImage)
         {
             guardImage.SetActive(false);
         }
+        if (Game.guards > 3)
+        {
+            Game.guards = 3;
+            Game.instance.SaveGame();
+        }
+           
         for (int i = 0; i < Game.guards; i++)
         {
-            guardsImage[i].SetActive(true);
+                guardsImage[i].SetActive(true);
         }
+        
+       
     }
     public void SidePanel(int index)
     {

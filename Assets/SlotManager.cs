@@ -28,8 +28,10 @@ public class SlotManager : MonoBehaviour
     internal bool bonusinFreeSpin;
     /// Slot Is Spining Or Not..
     internal bool isSpinning = false;
+    static bool  isResulted = false;
 
     public Game game;
+
 
     internal int totalNoOfLines = 25;
     public string[] remarks;
@@ -96,195 +98,194 @@ public class SlotManager : MonoBehaviour
                 }
             }
         }
+        isResulted = false;
         
     }
+    
     void Check()
     {
-        bool isResulted = false;
-        // int a;
         for (int index = 0; index < 11; index++)
         {
-           
             if (resutItems[0].animationIndex == index && resutItems[1].animationIndex == index && resutItems[2].animationIndex == index)
             {
                 if (!isResulted)
                 {
+                    if (index == 9)
+                    {
+                        Game.guards++;
+                    }
                     if (index != 7)
                         Game.instance.SetCash(Game.instance.GetCash() + prizes[index + 11]);
                     else if (index == 7)
                     {
-                        Game.instance.spins += (int)prizes[index];
+                        Game.instance.spins += 30;
+                        FindObjectOfType<SpinAnimator>().AddSpins(new Vector3(0, .5f, 0), 15);
                     }
-                    isResulted = true;
-                }
-                else if(index == 7)
-                {
-                    Game.instance.spins += (int)prizes[index];
-                }
-                else
-                {
-                    //Bodygraud Plus
-                }
-                if(index == 6)
-                {
-                    if (!FindObjectOfType<Coupon>().isUnlocked)
+                    else
                     {
-                        FindObjectOfType<Coupon>().FadeIn();
-                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
-                        ES3.Save("Coupon", true);
+                        //Bodygraud Plus
                     }
-                }
-                if (index == 5 || index == 4)
-                {
-                    AudioManager.instance.Play("Losse");
-                    if (index == 5)
-                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
-                    UiManager.instance.Particle(1);
-                }
-                else
-                {
-                    AudioManager.instance.Play("BigWinSound");
-                    UiManager.instance.Particle(0);
-                }
-                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
-                if (index >1)
-                    UiManager.instance.InstaniateEffect(index,new Vector2(0,0));               
-                
-               
+                    if (index == 6)
+                    {
+                        if (!FindObjectOfType<Coupon>().isUnlocked)
+                        {
+                            FindObjectOfType<Coupon>().FadeIn();
+                            this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                            ES3.Save("Coupon", true);
+                        }
+                    }
+                    if (index == 5 || index == 4)
+                    {
+                        AudioManager.instance.Play("Losse");
+                        if (index == 5)
+                            this.Wait(2.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                        UiManager.instance.Particle(1);
+                    }
+                    else
+                    {
+                        AudioManager.instance.Play("BigWinSound");
+                        UiManager.instance.Particle(0);
+                    }
+                    UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
+                    if (index > 1)
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+
+                    isResulted = true;
+                } 
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[1].animationIndex != index))
             {
                 if (!isResulted)
                 {
+                    if (index == 9)
+                    {
+                        Game.guards++;
+                    }
                     if (index != 7)
                         Game.instance.SetCash(Game.instance.GetCash() + prizes[index + 11]);
                     else if (index == 7)
                     {
-                        Game.instance.spins += (int)prizes[index];
+                        Game.instance.spins += 30;
+                        FindObjectOfType<SpinAnimator>().AddSpins(new Vector3(0, .5f, 0), 15);
                     }
-                    isResulted = true;
-                }
-                else if (index == 7)
-                {
-                    Game.instance.spins += (int)prizes[index];
-                }
-                if (index == 6)
-                {
-                    if (!FindObjectOfType<Coupon>().isUnlocked)
+                    if (index == 6)
                     {
-                        FindObjectOfType<Coupon>().FadeIn();
-                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
-                        ES3.Save("Coupon", true);
+                        if (!FindObjectOfType<Coupon>().isUnlocked)
+                        {
+                            FindObjectOfType<Coupon>().FadeIn();
+                            this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                            ES3.Save("Coupon", true);
+                        }
                     }
-                }
-                if (index == 5 || index == 4)
-                {
-                    AudioManager.instance.Play("Losse");
-                    if (index == 5)
-                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
-                    UiManager.instance.Particle(1);
-                }
-                else
-                {
-                    AudioManager.instance.Play("BigWinSound");
-                    UiManager.instance.Particle(0);
-                }
-                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
-                if (index > 1)
-                    UiManager.instance.InstaniateEffect(index,new Vector2(0, 0));
+                    if (index == 5 || index == 4)
+                    {
+                        AudioManager.instance.Play("Losse");
+                        if (index == 5)
+                            this.Wait(2.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                        UiManager.instance.Particle(1);
+                    }
+                    else
+                    {
+                        AudioManager.instance.Play("BigWinSound");
+                        UiManager.instance.Particle(0);
+                    }
+                    UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
+                    if (index > 1)
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+
+                    isResulted = true;
                
-                //UiManager.instance.Particle();
+                }
             }
             else if ((resutItems[1].animationIndex == index) && (resutItems[2].animationIndex == index) && (resutItems[0].animationIndex != index))
             {
                 if (!isResulted)
                 {
+                    if (index == 9)
+                    {
+                        Game.guards++;
+                    }
                     if (index != 7)
                         Game.instance.SetCash(Game.instance.GetCash() + prizes[index + 11]);
                     else if (index == 7)
                     {
-                        Game.instance.spins += (int)prizes[index];
+                        Game.instance.spins += 30;
+                        FindObjectOfType<SpinAnimator>().AddSpins(new Vector3(0, .5f, 0), 15);
                     }
+                    if (index == 6)
+                    {
+                        if (!FindObjectOfType<Coupon>().isUnlocked)
+                        {
+                            FindObjectOfType<Coupon>().FadeIn();
+                            this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                            ES3.Save("Coupon", true);
+                        }
+                    }
+                    if (index == 5 || index == 4)
+                    {
+                        AudioManager.instance.Play("Losse");
+                        if (index == 5)
+                            this.Wait(2.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                        UiManager.instance.Particle(1);
+                    }
+                    else
+                    {
+                        AudioManager.instance.Play("BigWinSound");
+                        UiManager.instance.Particle(0);
+                    }
+                    UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
+                    if (index > 1)
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+
                     isResulted = true;
                 }
-                else if (index == 7)
-                {
-                    Game.instance.spins += (int)prizes[index];
-                }
-                if (index == 6)
-                {
-                    if (!FindObjectOfType<Coupon>().isUnlocked)
-                    {
-                        FindObjectOfType<Coupon>().FadeIn();
-                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
-                        ES3.Save("Coupon", true);
-                    }
-                }
-                if (index == 5 || index == 4)
-                {
-                    AudioManager.instance.Play("Losse");
-                    if (index == 5)
-                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
-                    UiManager.instance.Particle(1);
-                }
-                else
-                {
-                    AudioManager.instance.Play("BigWinSound");
-                    UiManager.instance.Particle(0);
-                }
-                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
-                if (index > 1)
-                    UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
-                
-               // UiManager.instance.Particle();
-                
             }
             else if ((resutItems[0].animationIndex == index) && (resutItems[1].animationIndex == index) && (resutItems[2].animationIndex != index))
-            {
-               
-                if(index == 9 && Game.guards <3)
-                {
-                    Game.guards++;
-                }
+            {                
                 if (!isResulted)
                 {
+                    if (index == 9)
+                    {
+                        Game.guards++;
+
+                    }
                     if (index != 7)
                         Game.instance.SetCash(Game.instance.GetCash() + prizes[index + 11]);
                     else if (index == 7)
                     {
-                        Game.instance.spins += (int)prizes[index];
+                        Game.instance.spins += 30;
+                        FindObjectOfType<SpinAnimator>().AddSpins(new Vector3(0, .5f, 0), 15);
                     }
+                    if (index == 6)
+                    {
+                        if (!FindObjectOfType<Coupon>().isUnlocked)
+                        {
+                            FindObjectOfType<Coupon>().FadeIn();
+                            this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
+                            ES3.Save("Coupon", true);
+                        }
+                    }
+                    if (index == 5 || index == 4)
+                    {
+                        AudioManager.instance.Play("Losse");
+                        if (index == 5)
+                            this.Wait(2.5f, () => FindObjectOfType<RehabManager>().StartRehab());
+                        UiManager.instance.Particle(1);
+                    }
+                    else
+                    {
+                        AudioManager.instance.Play("BigWinSound");
+                        UiManager.instance.Particle(0);
+                    }
+                    UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
+                    if (index > 1)
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+
+
                     isResulted = true;
                 }
-                if (index == 6)
-                {
-                    if (!FindObjectOfType<Coupon>().isUnlocked)
-                    {
-                        FindObjectOfType<Coupon>().FadeIn();
-                        this.Wait(3.5f, () => FindObjectOfType<Coupon>().FadeIn());
-                        ES3.Save("Coupon", true);
-                    }
-                }
-                if (index == 5 || index == 4)
-                {
-                    AudioManager.instance.Play("Losse");
-                    if (index == 5)
-                        this.Wait(1.5f, () => FindObjectOfType<RehabManager>().StartRehab());
-                    UiManager.instance.Particle(1);
-                }
-                else
-                {
-                    AudioManager.instance.Play("BigWinSound");
-                    UiManager.instance.Particle(0);
-                }
-                UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 1);
-                if (index > 1)
-                    UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
-                
-                //UiManager.instance.Particle();
-                
             }
-            else
+            else if((resutItems[0].animationIndex != resutItems[1].animationIndex) && (resutItems[2].animationIndex != resutItems[1].animationIndex) && (resutItems[0].animationIndex != resutItems[2].animationIndex))
             {
                 if (!isResulted)
                 {
@@ -293,7 +294,9 @@ public class SlotManager : MonoBehaviour
                 }
                 //  UiManager.instance.Particle();
                 // break;
-                UiManager.instance.MachineTextPopUp("=/5000", new Vector3(0.01f, 0.01f, 0.01f), 1); 
+                UiManager.instance.MachineTextPopUp("=/5000", new Vector3(0.01f, 0.01f, 0.01f), 1);
+                
+               
             }
             Game.instance.SaveGame();
 

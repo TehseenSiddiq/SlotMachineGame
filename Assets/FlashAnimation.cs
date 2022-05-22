@@ -9,15 +9,17 @@ public class FlashAnimation : MonoBehaviour
 
     void Start()
     {
-        transform.DOScale(new Vector3(2, 2, 2), 1f);
+        transform.DOScale(new Vector3(.35f, .35f, .35f), 1f);
         child.transform.DOScale(new Vector3(2, 2, 2), 1f);
 
-        this.Wait(4, () =>
+        this.Wait(7, () =>
         {
-            transform.DOScale(new Vector3(0, 0, 0), 0.5f);
-            child.transform.DOScale(new Vector3(0, 0, 0), 0.5f);      
+            transform.DOScale(new Vector3(0, 0, 0), 1.5f);
+            child.transform.DOScale(new Vector3(0, 0, 0), 1.5f);
+            
         });
-        this.Wait(5, () => Destroy(gameObject));
+        this.Wait(9, () => Destroy(gameObject));
+
 
     }
 

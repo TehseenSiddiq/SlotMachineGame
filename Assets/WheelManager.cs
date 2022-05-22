@@ -42,7 +42,7 @@ public class WheelManager : MonoBehaviour
         });
        
        
-        InvokeRepeating("CheckLevel", 4, 4);
+        InvokeRepeating("CheckLevel", 1, 1);
     }
 
     // Update is called once per frame
@@ -114,7 +114,7 @@ public class WheelManager : MonoBehaviour
         {
             ps2.Play();
             AudioManager.instance.Play("Losse");
-            FindObjectOfType<RehabManager>().StartRehab();
+            this.Wait(2.5f, () => FindObjectOfType<RehabManager>().StartRehab());
             if (!effect)
             {
                 UiManager.instance.InstaniateEffect(5,new Vector2(0,11));
@@ -179,11 +179,11 @@ public class WheelManager : MonoBehaviour
     }
     void CheckLevel()
     {
-        if (Game.instance.GetCash() > 10000000)
+        if (Game.instance.GetCash() > 1000000000)
         {
             Game.instance.SetLevel(3);
         }
-        else if (Game.instance.GetCash() < 10000000 && Game.instance.GetCash() > 1000000)
+        else if (Game.instance.GetCash() < 1000000000 && Game.instance.GetCash() > 100000000)
             Game.instance.SetLevel(2);
         else
             Game.instance.SetLevel(1);
