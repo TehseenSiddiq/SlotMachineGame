@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settings:
     _location: 0
-    path: SaveFile.es3
+    path: NewFile.es3
     encryptionType: 0
     compressionType: 0
     encryptionPassword: password
@@ -32,7 +32,7 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - GoogleMobileAds.Editor
-    showAdvancedSettings: 0
+    showAdvancedSettings: 1
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
   addAllPrefabsToManager: 1

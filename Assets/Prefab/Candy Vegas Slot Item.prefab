@@ -60,6 +60,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: d01de1a21024f1248b09110cf8d45eba, type: 3}
   - {fileID: 2800000, guid: 39b833afced944b469aa82152639f524, type: 3}
   - {fileID: 2800000, guid: 897833a7017477145b558f153381f625, type: 3}
+  - {fileID: 2800000, guid: f4c7db3b43f2b2c45a5dc151bfc1b5ab, type: 3}
   names:
   - Cash
   - Celebs
@@ -72,6 +73,7 @@ MonoBehaviour:
   - SwagGift
   - BodyGraud
   - BlonjeMania
+  - Followers
   indexInColumn: 0
   animationIndex: 0
   itemType: 2

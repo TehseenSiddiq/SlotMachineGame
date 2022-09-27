@@ -1,0 +1,348 @@
+fileFormatVersion: 2
+guid: 35eda5dd1aa8e9444bacfd0eb45178b0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1460318083785591066
+    second: DestroyedPools_0
+  - first:
+      213: -1391888215553578687
+    second: DestroyedPools_1
+  - first:
+      213: -5000125500160829580
+    second: DestroyedPools_2
+  - first:
+      213: -1761513710229648312
+    second: DestroyedPools_3
+  - first:
+      213: -1591906277306013990
+    second: DestroyedPools_4
+  - first:
+      213: 4657805354381968373
+    second: DestroyedPools_5
+  - first:
+      213: 4516257033318562665
+    second: DestroyedPools_9
+  - first:
+      213: -1634089173201384961
+    second: DestroyedPools_10
+  - first:
+      213: -1177489820173845663
+    second: DestroyedPools_11
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DestroyedPools_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 747
+        width: 321
+        height: 195
+      alignment: 9
+      pivot: {x: 0.47656897, y: 0.053675883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a198e136f87144410800000000000000
+      internalID: 1460318083785591066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 746
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.48966864, y: 0.048165817}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14960e0ea050face0800000000000000
+      internalID: -1391888215553578687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_2
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 746
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.50688815, y: 0.053675883}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4779a82795cfb9ab0800000000000000
+      internalID: -5000125500160829580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_3
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 440
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.50344396, y: 0.17489968}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84c08ca0d98dd87e0800000000000000
+      internalID: -1761513710229648312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_4
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 440
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5309951, y: 0.15285894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6e571dca968e9e0800000000000000
+      internalID: -1591906277306013990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_5
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 440
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5172197, y: 0.114287704}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f389dcaa49d3a040800000000000000
+      internalID: 4657805354381968373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_9
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 130
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5206633, y: 0.19694011}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96bff49f7d7fcae30800000000000000
+      internalID: 4516257033318562665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_10
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 130
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5275511, y: 0.22449099}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff905040e8c8259e0800000000000000
+      internalID: -1634089173201384961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DestroyedPools_11
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 130
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.5275513, y: 0.1308179}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b36e54f37b8afe0800000000000000
+      internalID: -1177489820173845663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
