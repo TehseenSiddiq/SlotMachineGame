@@ -1,0 +1,348 @@
+fileFormatVersion: 2
+guid: 323eaaf0e3fc98540b1597209d3600d5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4295899785561575721
+    second: Pools_0
+  - first:
+      213: 7574457214918019211
+    second: Pools_1
+  - first:
+      213: 717188664694150387
+    second: Pools_2
+  - first:
+      213: 1032009492839917447
+    second: Pools_3
+  - first:
+      213: -7991728561775524493
+    second: Pools_4
+  - first:
+      213: -338501573016326801
+    second: Pools_5
+  - first:
+      213: -4302454785253816343
+    second: Pools_15
+  - first:
+      213: -2604989652833000318
+    second: Pools_16
+  - first:
+      213: 1048942207115108525
+    second: Pools_18
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Pools_0
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 746
+        width: 312
+        height: 195
+      alignment: 9
+      pivot: {x: 0.49181685, y: 0.06792149}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9211315281a1e9b30800000000000000
+      internalID: 4295899785561575721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 746
+        width: 315
+        height: 195
+      alignment: 9
+      pivot: {x: 0.49594745, y: 0.048281625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88459da4b0ed1960800000000000000
+      internalID: 7574457214918019211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_2
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 745
+        width: 315
+        height: 195
+      alignment: 9
+      pivot: {x: 0.50810564, y: 0.048281625}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4180c6a47f3f900800000000000000
+      internalID: 717188664694150387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_3
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 440
+        width: 315
+        height: 200
+      alignment: 9
+      pivot: {x: 0.487842, y: 0.123404086}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 787ed897a2f625e00800000000000000
+      internalID: 1032009492839917447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_4
+      rect:
+        serializedVersion: 2
+        x: 379
+        y: 440
+        width: 315
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5, y: 0.117021024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 375c60e073da71190800000000000000
+      internalID: -7991728561775524493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_5
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 440
+        width: 291
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5219351, y: 0.117021024}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d6370ec966d4bf0800000000000000
+      internalID: -338501573016326801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_15
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 130
+        width: 315
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5000002, y: 0.16170235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e744ce0b2c9a44c0800000000000000
+      internalID: -4302454785253816343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_16
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 130
+        width: 315
+        height: 200
+      alignment: 9
+      pivot: {x: 0.48784217, y: 0.22553207}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284225b66b739dbd0800000000000000
+      internalID: -2604989652833000318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pools_18
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 130
+        width: 268
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5238171, y: 0.11063851}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0a20d31679e8e00800000000000000
+      internalID: 1048942207115108525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
