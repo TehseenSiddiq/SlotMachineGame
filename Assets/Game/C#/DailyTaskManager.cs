@@ -62,6 +62,15 @@ public class DailyTaskManager : MonoBehaviour
     void Function(int i) 
     {
         Debug.Log("Task Number " + i + " done.");
+        if (!list[i].isDone)
+        {
+            list[i].isDone = true;
+        }
+        foreach (Transform child in content.GetComponentsInChildren<Transform>())
+        {
+            Debug.Log(child.name);
+            Destroy(child.gameObject);
+        }
     }
     private void LateUpdate()
     {
