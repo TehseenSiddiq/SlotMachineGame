@@ -37,6 +37,7 @@ public class DateTimeManager : MonoBehaviour
     }
     public string DisplayTime()
     {
+       // Debug.Log(System.TimeSpan.FromSeconds(86400 - totalTime).ToString("hh':'mm':'ss"));
         if (86400 - totalTime <= 0)
             return "New Tasks Avaible";
         return "New Task Will Be Avaible In: \n"+System.TimeSpan.FromSeconds(86400 - totalTime).ToString("hh':'mm':'ss");

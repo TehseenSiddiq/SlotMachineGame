@@ -27,6 +27,7 @@ public class DailyTaskManager : MonoBehaviour
 
     public ParticleSystem ps;
     public GameObject congratsPanel;
+    public GameObject blockPanel;
 
     public TextMeshProUGUI timerText;
     public DateTimeManager dateTime;
@@ -87,10 +88,18 @@ public class DailyTaskManager : MonoBehaviour
     bool temBool = false;
     private void LateUpdate()
     {
+        if (NewsMananger.taskBlocked)
+        {
+            blockPanel.SetActive(true);
+        }
+        else
+        {
+            blockPanel.SetActive(false);
+        }
+        Debug.Log(dateTime.DisplayTime());
         if(dateTime.DisplayTime() == "New Tasks Avaible")
         {
             timerText.GetComponent<Button>().interactable = true;
-            return;
         }
         else
             timerText.GetComponent<Button>().interactable = false;
