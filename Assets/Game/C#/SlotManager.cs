@@ -45,7 +45,7 @@ public class SlotManager : MonoBehaviour
     }
     private void Start()
     {
-       // Debug.Log(game.spins);
+
     }
     public void SpinButtonClicked()
     {
