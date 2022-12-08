@@ -25,6 +25,14 @@ public class EnemyTaskManager : MonoBehaviour
         foreach (var button in buttons)
         {
             button.onClick.AddListener(()=>Debug.Log("Working"));
-        } 
+        }
+    }
+    public void Successfull()
+    {
+        Debug.Log("Successfull Attack");
+
+        string name = FindObjectOfType<AttackLand>().nameRand;
+        endInfo.GetComponentInChildren<TMP_Text>().text = "You sabotaged <b><color=\"red\">" + name + "</color></b> routine. \nYou earned <b><color=\"yellow\">" + totalAmount + "blonje cash</color>.";
+        endInfo.DOAnchorPosY(0, 2);
     }
 }
