@@ -1,5 +1,7 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +11,11 @@ public class EnemyTaskManager : MonoBehaviour
     public DailyTask[] dailyTasks;
     public Button[] buttons;
     public Transform content;
+
+    public int totalAmount;
+    public RectTransform endInfo;
+    public bool isLooted = false;
+    public ParticleSystem ps;
 
     private void Start()
     {
@@ -24,7 +31,12 @@ public class EnemyTaskManager : MonoBehaviour
         }
         foreach (var button in buttons)
         {
-            button.onClick.AddListener(()=>Debug.Log("Working"));
+            button.onClick.AddListener(()=> {
+                Successfull();
+                ps.Play();
+
+
+                });
         }
     }
     public void Successfull()
