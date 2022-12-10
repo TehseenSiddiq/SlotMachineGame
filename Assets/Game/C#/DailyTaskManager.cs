@@ -33,7 +33,7 @@ public class DailyTaskManager : MonoBehaviour
     public DateTimeManager dateTime;
     private void Start()
     {
-        ES3.DeleteKey("DailyTask");
+        //ES3.DeleteKey("DailyTask");
         if (ES3.KeyExists("DailyTask"))
         {
            
@@ -78,6 +78,26 @@ public class DailyTaskManager : MonoBehaviour
             task.GetComponent<Button>().onClick.AddListener(() => Function(task.index)); 
         }
     }
+
+    void SabotagedTask()
+    {
+        foreach (Transform child in content.transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        list = ES3.Load("DailyTask", list);
+        for(int i = 0;i< Random.Range(1, 3); i++)
+        {
+            list[Random.Range(0, list.Count)].isDone = false;
+        }
+        for (int i = 0; i < 5; i++)
+        {
+            Task task = Instantiate(prefab, content).GetComponent<Task>();
+            task.setter(list[i].time, list[i].name, list[i].isDone);
+            task.index = i;
+            task.GetComponent<Button>().onClick.AddListener(() => Function(task.index));
+        }
+    }
     public bool doingTask = false;
     int index;
     void Function(int i) 
@@ -96,7 +116,7 @@ public class DailyTaskManager : MonoBehaviour
         {
             blockPanel.SetActive(false);
         }
-        Debug.Log(dateTime.DisplayTime());
+        
         if(dateTime.DisplayTime() == "New Tasks Avaible")
         {
             timerText.GetComponent<Button>().interactable = true;

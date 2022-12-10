@@ -44,7 +44,7 @@ public class UiManager : MonoBehaviour
     public RectTransform endInfo; 
     public GameObject machine,podium;
     public GameObject header;
-
+    [SerializeField] Transform enemyTaskScreen;
 
     private void Awake()
     {
@@ -68,6 +68,7 @@ public class UiManager : MonoBehaviour
         }
         InvokeRepeating("GuardManager", 0.2f, 0.2f);
         InvokeRepeating("CheckCameraPosition", 0.2f, 0.05f);
+      //  this.Wait(2, ()=>CurtainEffect());
     }
 
     void Update()
@@ -167,6 +168,7 @@ public class UiManager : MonoBehaviour
             this.Wait(4,()=> conservatorScreen.SetActive(false));
             this.Wait(6, () =>
             {
+                enemyTaskScreen.DOScale(0, 1);
                 curtains[0].DOAnchorPosX(-1800, 4);
                 curtains[1].DOAnchorPosX(1800, 4);
                 enemyInfoScreen.DOAnchorPosY(300, 2);
@@ -268,10 +270,11 @@ public class UiManager : MonoBehaviour
      
             camera.transform.DOMove(new Vector3(index * FindObjectOfType<LandPosition>().pos, -20, camera.transform.position.z), cameraSpeed, false).SetEase(commonEase);
     }
-    public void InstaniateEffect(int i,Vector2 pos)
+    public void InstaniateEffect(int i, Vector2 pos, float delay)
     {  
         GameObject a = Instantiate(slotEffect, pos, Quaternion.identity);
         a.GetComponent<SpriteRenderer>().sprite = effectImages[i];
+        a.GetComponent<FlashAnimation>().delay = delay;
         
     }
     public void Particle(int index)

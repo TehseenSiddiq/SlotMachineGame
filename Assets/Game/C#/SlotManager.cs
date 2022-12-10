@@ -36,6 +36,7 @@ public class SlotManager : MonoBehaviour
     internal int totalNoOfLines = 25;
     public string[] remarks;
     public long[] prizes;
+    public float[] popUpDelay;
 
     public SlotItem[] resutItems = new SlotItem[3];
     void Awake()
@@ -156,7 +157,7 @@ public class SlotManager : MonoBehaviour
                     Game.instance.SaveGame();
                     UiManager.instance.MachineTextPopUp(remarks[index], new Vector3(0.01f, 0.01f, 0.01f), 0.2f);
                     if (index > 1)
-                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0),popUpDelay[index]);
 
                     isResulted = true;
                 } 
@@ -209,7 +210,7 @@ public class SlotManager : MonoBehaviour
                     Game.instance.SaveGame();
                     UiManager.instance.MachineTextPopUp(remarks[index+12], new Vector3(0.01f, 0.01f, 0.01f), .2f);
                     if (index > 1)
-                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0), popUpDelay[index]);
 
                     isResulted = true;
                
@@ -264,7 +265,7 @@ public class SlotManager : MonoBehaviour
                     Game.instance.SaveGame();
                     UiManager.instance.MachineTextPopUp(remarks[index+12], new Vector3(0.01f, 0.01f, 0.01f), .2f);
                     if (index > 1)
-                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0), popUpDelay[index]);
 
                     isResulted = true;
                 }
@@ -318,7 +319,7 @@ public class SlotManager : MonoBehaviour
                     Game.instance.SaveGame();
                     UiManager.instance.MachineTextPopUp(remarks[index+12], new Vector3(0.01f, 0.01f, 0.01f), .2f);
                     if (index > 1)
-                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0));
+                        UiManager.instance.InstaniateEffect(index, new Vector2(0, 0), popUpDelay[index]);
 
 
                     isResulted = true;

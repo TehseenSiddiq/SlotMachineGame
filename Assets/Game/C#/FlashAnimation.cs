@@ -5,20 +5,21 @@ public class FlashAnimation : MonoBehaviour
 {
     public Transform child;
     [SerializeField] float speed;
-    
+    public float delay = 7;
 
+    
     void Start()
     {
         transform.DOScale(new Vector3(.35f, .35f, .35f), 1f);
         child.transform.DOScale(new Vector3(2, 2, 2), 1f);
 
-        this.Wait(7, () =>
+        this.Wait(delay, () =>
         {
             transform.DOScale(new Vector3(0, 0, 0), 1.5f);
             child.transform.DOScale(new Vector3(0, 0, 0), 1.5f);
             
         });
-        this.Wait(9, () => Destroy(gameObject));
+        this.Wait(delay+2, () => Destroy(gameObject));
 
 
     }

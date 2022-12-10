@@ -117,7 +117,7 @@ public class WheelManager : MonoBehaviour
             this.Wait(2.5f, () => FindObjectOfType<RehabManager>().StartRehab());
             if (!effect)
             {
-                UiManager.instance.InstaniateEffect(5,new Vector2(0,11));
+                UiManager.instance.InstaniateEffect(5,new Vector2(0,11),SlotManager.instance.popUpDelay[5]);
                 effect = true;
             }
         }
