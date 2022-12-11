@@ -79,7 +79,7 @@ public class DailyTaskManager : MonoBehaviour
         }
     }
 
-    void SabotagedTask()
+    public void SabotagedTask()
     {
         foreach (Transform child in content.transform)
         {

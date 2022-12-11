@@ -34,6 +34,7 @@ public class NewsMananger : MonoBehaviour
         {
             taskBlocked = false;
             Game.instance.SetCash(Game.instance.GetCash() - 5000000);
+            FindObjectOfType<DailyTaskManager>().SabotagedTask();
         }
         
     }
