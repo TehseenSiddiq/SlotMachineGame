@@ -30,6 +30,7 @@ public class WheelManager : MonoBehaviour
   //  public ParticleSystem ps2;
 
     [SerializeField]private float timeCount = 0;
+    private int index;
     // Start is called before the first frame update
     void Start()
     {
@@ -40,9 +41,6 @@ public class WheelManager : MonoBehaviour
             //Debug.Log("Time Since App Closed : " + (float)DateTimeManager.timeSinceAppClosed);
             timeCount -= (float)DateTimeManager.timeSinceAppClosed;
         });
-       
-       
-        //InvokeRepeating("CheckLevel", 1, 1);
     }
 
     // Update is called once per frame
@@ -53,6 +51,11 @@ public class WheelManager : MonoBehaviour
             timeCount -= Time.deltaTime;
             SpinButton.interactable = false;
             FindObjectOfType<UiManager>().DisplayTime(timeCount, text);
+        }
+        else if(timeCount <= 0 && RehabManager.InRehab())
+        {
+            SpinButton.interactable = false;
+            FindObjectOfType<UiManager>().DisplayTime(RehabManager.rehabTimer, text);
         }
         else
         {
@@ -86,25 +89,9 @@ public class WheelManager : MonoBehaviour
                 }
                 this.Wait(2.1f, () => Result());
 
-                // GetComponent<BoxCollider>().enabled = true;
-                //GetComponent<BoxCollider>().isTrigger = true;
-                // SoundFxManager.instance.spinSound.Stop();
-                // StartCoroutine(EndBonusGame());
                 FindObjectOfType<AudioManager>().Pause("SpinSound");
             }
         }
-      
-        else
-        {
-            
-            
-        }
-    }
-
-    private void LateUpdate()
-    {
-
-       
     }
 
     void Result()
@@ -129,7 +116,7 @@ public class WheelManager : MonoBehaviour
             {
                 if (!isResulted)
                 {
-                    Game.instance.SetCash(Game.instance.GetCash() + prices[0]);
+                    index = 0;
                     isResulted = true;
                 }
             }
@@ -137,7 +124,7 @@ public class WheelManager : MonoBehaviour
             {
                 if (!isResulted)
                 {
-                    Game.instance.SetCash(Game.instance.GetCash() + prices[2]);
+                    index = 2;
                     isResulted = true;
                 }
             }
@@ -145,7 +132,7 @@ public class WheelManager : MonoBehaviour
             {
                 if (!isResulted)
                 {
-                    Game.instance.SetCash(Game.instance.GetCash() + prices[3]);
+                    index = 3;
                     isResulted = true;
                 }
             }
@@ -171,11 +158,13 @@ public class WheelManager : MonoBehaviour
         if (ps.isPlaying)
             ps.Stop();
         //else
-            //ps2.Stop();
+        //ps2.Stop();
+        Game.instance.SetCash(Game.instance.GetCash() + prices[index]);
         CoinAnimater.instance.AddCoins(new Vector3(0, 5f, 0), 100);
         spun = false;
         collectBtn.SetActive(false);
         spinBtn.SetActive(true);
+        Game.instance.SaveGame();
     }
    
     public void AnimateCoin()
