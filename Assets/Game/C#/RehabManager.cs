@@ -6,7 +6,9 @@ public class RehabManager : MonoBehaviour
 {
     public static float rehabTimer = 0;
     public float rehabMaxTime = 360;
-    public GameObject blonjeBible;
+    public GameObject blonjeBible,video,endRehabScreen;
+    public float videoTime;
+    
 
     private void Start()
     {
@@ -14,7 +16,21 @@ public class RehabManager : MonoBehaviour
         rehabTimer -= (float)DateTimeManager.timeSinceAppClosed;
      //   StartRehab();
     }
+    private void LateUpdate()
+    {
+        if (video.activeSelf)
+        {
+            videoTime -= Time.deltaTime;
 
+        }
+        else
+            videoTime = 397;
+        if(videoTime <= 0)
+        {
+            endRehabScreen.SetActive(true);
+            rehabTimer = 0;
+        }
+    }
     public static bool InRehab()
     {
         if (rehabTimer > 0)

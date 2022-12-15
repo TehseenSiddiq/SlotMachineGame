@@ -18,6 +18,7 @@ public class DailyTaskManager : MonoBehaviour
     public GameObject MainPanel;
 
     public GameObject prefab;
+    public GameObject noTaskPrefab;
     public Transform content;
     public DailyTask[] dailyTasks;
     public List<DailyTask> list;
@@ -35,15 +36,9 @@ public class DailyTaskManager : MonoBehaviour
     {
         //ES3.DeleteKey("DailyTask");
         if (ES3.KeyExists("DailyTask"))
-        {
-           
             LoadTasks();
-        }
         else
-        {
-        
             CreateTasks();
-        }
     }
     
     public void CreateTasks()
@@ -109,18 +104,19 @@ public class DailyTaskManager : MonoBehaviour
     private void LateUpdate()
     {
         if (NewsMananger.taskBlocked)
-        {
             blockPanel.SetActive(true);
-        }
         else
-        {
             blockPanel.SetActive(false);
-        }
         
         if(dateTime.DisplayTime() == "New Tasks Avaible")
         {
             timerText.GetComponent<Button>().interactable = true;
-        }
+            foreach (Transform child in content.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            Instantiate(noTaskPrefab, content);
+        }  
         else
             timerText.GetComponent<Button>().interactable = false;
         timerText.text = dateTime.DisplayTime();
@@ -135,7 +131,6 @@ public class DailyTaskManager : MonoBehaviour
             slider.gameObject.SetActive(true);
             if (slider.PreformingTask(list[index].name))
             {
-                
                 if (!list[index].isDone)
                 {
                     
