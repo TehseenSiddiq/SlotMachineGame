@@ -10,6 +10,7 @@ using DG.Tweening;
 public class DailyTask
 {
     public string name;
+    public Sprite icon;
     public string time;
     public bool isDone;
 }
