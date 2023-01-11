@@ -63,7 +63,7 @@ TextureImporter:
       213: 2513650596598967777
     second: Task_Icons_19
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -84,6 +84,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -122,6 +123,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -161,6 +163,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -604,6 +618,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Task_Icons_5: 5441312383259753513
+      Task_Icons_12: -120813342136080310
+      Task_Icons_4: -1658992798168309782
+      Task_Icons_18: -8302552175036169776
+      Task_Icons_9: 6894086006454479978
+      Task_Icons_2: 8391966664722405915
+      Task_Icons_7: -8783560778309241513
+      Task_Icons_10: -4132593195664184159
+      Task_Icons_17: -6862715564236287735
+      Task_Icons_11: 7042398070023195610
+      Task_Icons_13: 3775252731695979485
+      Task_Icons_6: -156410808190951039
+      Task_Icons_19: 2513650596598967777
+      Task_Icons_0: -5182778871109667792
+      Task_Icons_1: 3543413739766011996
+      Task_Icons_3: 1030538708817083983
+      Task_Icons_16: 2450366851526622431
+      Task_Icons_15: 2993916281829209345
+      Task_Icons_8: -2590626589928282662
+      Task_Icons_14: -3598862743838559196
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 1

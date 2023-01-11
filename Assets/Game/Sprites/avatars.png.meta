@@ -69,7 +69,7 @@ TextureImporter:
       213: -8209521683336020863
     second: avatars_21
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -90,6 +90,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -98,9 +99,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -128,6 +129,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -167,6 +169,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -652,6 +666,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      avatars_7: 6439559391161232639
+      avatars_9: -282705268373358398
+      avatars_14: 907571389633787210
+      avatars_15: 2364459243029384129
+      avatars_12: 7154555498877065752
+      avatars_10: 5493435548591289188
+      avatars_13: 8984149269619282577
+      avatars_0: -7898670983504509472
+      avatars_6: 6164006494179161476
+      avatars_17: -2930761690053690384
+      avatars_19: 6519360941845672075
+      avatars_20: 6695748036080436186
+      avatars_8: -1565505729979717449
+      avatars_21: -8209521683336020863
+      avatars_4: -2661456039359935196
+      avatars_16: 2748869217463783317
+      avatars_11: -7593232070452528083
+      avatars_5: -7543299162069311748
+      avatars_18: -8843337721707120184
+      avatars_2: -4556204826488232844
+      avatars_3: 7237214118930686135
+      avatars_1: -8129995080149776113
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
