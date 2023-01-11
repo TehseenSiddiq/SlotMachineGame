@@ -32,6 +32,10 @@ public class Task : MonoBehaviour
         dailyTask.name = name;
         dailyTask.time = type;
         dailyTask.isDone = isDone;
+        if(isDone)
+        {
+            GetComponent<Button>().interactable = false;
+        }
     }
 
   

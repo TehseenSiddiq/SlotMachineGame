@@ -25,7 +25,8 @@ public class EnemyTaskManager : MonoBehaviour
         for (int i = 0; i < 5; i++)
         {
             EnemyTask task = Instantiate(prefab, content).GetComponent<EnemyTask>();
-            task.setter(dailyTasks[Random.Range(0, dailyTasks.Length)].time, dailyTasks[Random.Range(0, dailyTasks.Length)].name, false);
+            int a = Random.Range(0, dailyTasks.Length);
+            task.setter(dailyTasks[a].icon);
             task.index = i;
             //task.GetComponent<Button>().onClick.AddListener(() => Function(task.index));
             buttons.Add(task.GetComponent<Button>());
@@ -42,9 +43,14 @@ public class EnemyTaskManager : MonoBehaviour
     public void Successfull()
     {
         Debug.Log("Successfull Attack");
+        totalAmount = Random.Range(10000, 50000) * Game.instance.GetLevel();
         this.transform.DOScale(0, 0.6f).SetEase(Ease.InBack);
         string name = FindObjectOfType<AttackLand>().nameRand;
         endInfo.GetComponentInChildren<TMP_Text>().text = "You sabotaged <b><color=\"red\">" + name + "</color></b> routine. \nYou earned <b><color=\"yellow\">" + totalAmount + "blonje cash</color>.";
         endInfo.DOAnchorPosY(0, 2);
+    }
+    public void SetCash()
+    {
+        Game.instance.SetCash(Game.instance.GetCash() + totalAmount);
     }
 }

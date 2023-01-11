@@ -13,10 +13,16 @@ public class LandCompleteScript : MonoBehaviour
     {
         transform.DOScale(1, 2f).SetEase(Ease.OutBack);
         ps.Play();
+        Debug.Log("Level " + Game.instance.GetLevel());
         if(Game.instance.GetLevel() >= 3)
         {
             button.SetActive(false);
-            this.Wait(2.5f, () => { transform.DOScale(0, 1).SetEase(Ease.InBack); });
+            this.Wait(2.5f, () => { 
+                transform.DOScale(0, 1).SetEase(Ease.InBack); 
+                Map.SetActive(true);
+                StartCoroutine(AnimateMap());
+            });
+            
         }
 
     }

@@ -161,31 +161,31 @@ public class UiManager : MonoBehaviour
     }
     public void CurtainEffect()
     {
-        curtains[0].DOAnchorPosX(-0, 4);
-        curtains[1].DOAnchorPosX(0, 4);
+        curtains[0].DOAnchorPosX(-0, 2);
+        curtains[1].DOAnchorPosX(0, 2);
         if (conservatorScreen.activeSelf)
         {
             this.Wait(4,()=> conservatorScreen.SetActive(false));
             this.Wait(6, () =>
             {
                 enemyTaskScreen.DOScale(0, 1);
-                curtains[0].DOAnchorPosX(-1800, 4);
-                curtains[1].DOAnchorPosX(1800, 4);
+                curtains[0].DOAnchorPosX(-1800, 2);
+                curtains[1].DOAnchorPosX(1800, 2);
                 enemyInfoScreen.DOAnchorPosY(300, 2);
                 endInfo.DOAnchorPosY(-330, 2);
             });
         }
         else
         {
-            this.Wait(4, () => {
+            this.Wait(2, () => {
                 conservatorScreen.SetActive(true);
                 enemyInfoScreen.GetComponent<AttackLand>().SetInfo();
                 enemyInfoScreen.DOAnchorPosY(0, 2);
             });
-            this.Wait(6, () =>
+            this.Wait(4, () =>
             {
-                curtains[0].DOAnchorPosX(-1800, 4);
-                curtains[1].DOAnchorPosX(1800, 4);
+                curtains[0].DOAnchorPosX(-1800,2);
+                curtains[1].DOAnchorPosX(1800, 2);
             });
         }
 

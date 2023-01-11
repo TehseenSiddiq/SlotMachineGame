@@ -143,18 +143,20 @@ public class DailyTaskManager : MonoBehaviour
                 doingTask = false;
                 temBool = false;
                 slider.GetComponent<FadeInOut>().Hide();
-                foreach(DailyTask task in list)
-                {
-                    if (!task.isDone)
-                    {
-                        return;
-                    }
-                }
-                MainPanel.GetComponent<FadeInOut>().Hide();
-                ps.Play();
-                this.Wait(1, () => { congratsPanel.SetActive(true); });
+              
             }
         }
+        foreach (DailyTask task in list)
+        {
+            if (!task.isDone)
+            {
+                return;
+            }
+        }
+        Debug.Log("All Task Complete");
+        MainPanel.GetComponent<FadeInOut>().Hide();
+        ps.Play();
+        this.Wait(1, () => { congratsPanel.SetActive(true); });
     }
     public void CollectReward()
     {
