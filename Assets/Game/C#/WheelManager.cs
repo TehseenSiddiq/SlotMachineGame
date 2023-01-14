@@ -59,6 +59,7 @@ public class WheelManager : MonoBehaviour
         }
         else
         {
+            FindObjectOfType<UpdateSideNote>().wheelNote = 1;
             SpinButton.interactable = true;
             text.text = "Spin";
         }

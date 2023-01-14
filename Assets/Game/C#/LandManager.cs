@@ -18,9 +18,23 @@ public class LandManager : MonoBehaviour
 
     private void Start()
     {
-       // Game.instance.SetLevel(1);
+      //  Game.instance.SetCash(100000000);
         SetLevel();
-     //   image.sprite = buildings[Game.instance.GetLevel()].buildings[state ].image;
+        //   image.sprite = buildings[Game.instance.GetLevel()].buildings[state ].image;
+        InvokeRepeating("BuildingNumber", 1, 1);
+    }
+    void BuildingNumber()
+    {
+        FindObjectOfType<UpdateSideNote>().upgradeableNote= 0;
+        foreach (LevelBuilding building in buildings)
+        {
+            if(building.buildings.Length > state)
+            {
+                Debug.Log("PointIncreased");
+                FindObjectOfType<UpdateSideNote>().upgradeableNote++;
+            }
+        }
+       
     }
     private void LateUpdate()
     {
@@ -36,10 +50,14 @@ public class LandManager : MonoBehaviour
             completed = false;
         }
     }
+
     public void Build()
     {
-        if(buildings[Game.instance.GetLevel()-1].buildings[state+1].price < Game.instance.GetCash())
+        bool temp = false;
+        if(buildings[Game.instance.GetLevel()-1].buildings[state+1].price < Game.instance.GetCash() && !temp)
         {
+            Game.instance.SetCash(Game.instance.GetCash()-buildings[Game.instance.GetLevel() - 1].buildings[state + 1].price);
+            Game.instance.SaveGame();
             state++;
             GameObject a = Instantiate(buildParticles);
             a.transform.position = new Vector2(transform.position.x, transform.position.y+0.5f);
@@ -53,6 +71,7 @@ public class LandManager : MonoBehaviour
                 a.GetComponent<ParticleSystem>().Stop();
                 a.transform.DOScale(0, 1).SetEase(Ease.InBack);
             });
+            temp = true;
             //Destroy(a,3f);
         }
     }

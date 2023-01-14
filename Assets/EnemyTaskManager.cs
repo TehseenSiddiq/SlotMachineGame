@@ -35,6 +35,7 @@ public class EnemyTaskManager : MonoBehaviour
         {
             button.onClick.AddListener(()=> {
                 Successfull();
+                ps.gameObject.SetActive(true);
                 ps.DOScale(1, 0.5f);
                 animator.Play("FameSabotage");
                 });
